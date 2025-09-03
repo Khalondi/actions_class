@@ -13,6 +13,7 @@ jobs:
       - name: greeting
         run: echo "Hello Stranger, Welcome to my world"
   job_two:
+    needs: job_one
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
