@@ -8,10 +8,15 @@ on:
 jobs:
   job_one:
     runs-on: ubuntu-latest
+    outputs:
+      ask: ${{steps.get_output.}}
     steps:
       - uses: actions/checkout@v4
       - name: greeting
         run: echo "Hello Stranger, Welcome to my world"
+      - name: get_output
+        id: get_output
+        run: echo "Name Please" >> "$GITHUB_OUTPUT"
   job_two:
     needs: job_one
     runs-on: ubuntu-latest
